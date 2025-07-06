@@ -1,0 +1,873 @@
+
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jurusan Akuntansi - SMK Yadika Soreang</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Header */
+        header {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            box-shadow: 0 2px 20px rgba(0, 0, 0, 0.1);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 0;
+        }
+
+        .logo {
+            font-size: 1.8rem;
+            font-weight: bold;
+            color: #667eea;
+            text-decoration: none;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: #333;
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+
+        .nav-links a:hover {
+            color: #667eea;
+        }
+
+        /* Hero Section */
+        .hero {
+            text-align: center;
+            padding: 6rem 0;
+            color: white;
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            margin-bottom: 1rem;
+            animation: fadeInUp 1s ease;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            margin-bottom: 2rem;
+            opacity: 0.9;
+            animation: fadeInUp 1s ease 0.2s both;
+        }
+
+        .cta-button {
+            display: inline-block;
+            background: linear-gradient(45deg, #ff6b6b, #ffa500);
+            color: white;
+            padding: 15px 30px;
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: bold;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            animation: fadeInUp 1s ease 0.4s both;
+        }
+
+        .cta-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 25px rgba(255, 107, 107, 0.3);
+        }
+
+        /* Content Sections */
+        .section {
+            background: white;
+            margin: 2rem 0;
+            padding: 4rem 0;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        }
+
+        .section h2 {
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 3rem;
+            color: #333;
+            position: relative;
+        }
+
+        .section h2::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 3px;
+            background: linear-gradient(45deg, #667eea, #764ba2);
+            border-radius: 2px;
+        }
+
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .card {
+            background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+            padding: 2rem;
+            border-radius: 15px;
+            color: white;
+            text-align: center;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(240, 147, 251, 0.3);
+        }
+
+        .card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .card p {
+            opacity: 0.9;
+        }
+
+        /* Program Cards */
+        .program-card {
+            background: white;
+            border: 2px solid #e1e5e9;
+            padding: 2rem;
+            border-radius: 15px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        .program-card:hover {
+            border-color: #667eea;
+            transform: translateY(-5px);
+            box-shadow: 0 15px 35px rgba(102, 126, 234, 0.1);
+        }
+
+        .program-card .icon {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+
+        /* Footer */
+        footer {
+            background: #333;
+            color: white;
+            text-align: center;
+            padding: 3rem 0;
+            margin-top: 2rem;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .footer-section h3 {
+            margin-bottom: 1rem;
+            color: #667eea;
+        }
+
+        /* Animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Filter Buttons */
+        .filter-btn {
+            background: linear-gradient(45deg, #667eea, #764ba2);
+            color: white;
+            border: none;
+            padding: 12px 25px;
+            margin: 0 10px;
+            border-radius: 25px;
+            cursor: pointer;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            opacity: 0.7;
+        }
+
+        .filter-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(102, 126, 234, 0.3);
+            opacity: 1;
+        }
+
+        .filter-btn.active {
+            opacity: 1;
+            transform: scale(1.05);
+            box-shadow: 0 8px 20px rgba(102, 126, 234, 0.4);
+        }
+
+        /* Enhanced Gallery Styles */
+        .gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .gallery-item {
+            position: relative;
+            background: #f5f5f5;
+            border-radius: 20px;
+            overflow: hidden;
+            transition: all 0.4s ease;
+            cursor: pointer;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        }
+
+        .gallery-item:hover {
+            transform: translateY(-10px) scale(1.02);
+            box-shadow: 0 25px 50px rgba(0, 0, 0, 0.2);
+        }
+
+        .gallery-item img {
+            width: 100%;
+            height: 280px;
+            object-fit: cover;
+            display: block;
+        }
+
+        .gallery-item .placeholder {
+            width: 100%;
+            height: 280px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 3rem;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .gallery-item .placeholder::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: linear-gradient(45deg, rgba(255,255,255,0.1), transparent, rgba(255,255,255,0.1));
+            transform: rotate(-45deg);
+            animation: shimmer 3s infinite;
+        }
+
+        @keyframes shimmer {
+            0% { transform: translateX(-100%) translateY(-100%) rotate(-45deg); }
+            100% { transform: translateX(100%) translateY(100%) rotate(-45deg); }
+        }
+
+        .gallery-caption {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: linear-gradient(transparent, rgba(0, 0, 0, 0.9));
+            color: white;
+            padding: 3rem 1.5rem 1.5rem;
+            transform: translateY(70%);
+            transition: all 0.4s ease;
+        }
+
+        .gallery-item:hover .gallery-caption {
+            transform: translateY(0);
+        }
+
+        .gallery-caption h4 {
+            font-size: 1.3rem;
+            margin-bottom: 0.8rem;
+            font-weight: 600;
+        }
+
+        .gallery-caption p {
+            font-size: 0.95rem;
+            opacity: 0.9;
+            line-height: 1.4;
+        }
+
+        /* Activity Cards */
+        .activity-card {
+            background: white;
+            border-radius: 15px;
+            padding: 1.5rem;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .activity-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.15);
+        }
+
+        .activity-header {
+            display: flex;
+            align-items: center;
+            margin-bottom: 1rem;
+        }
+
+        .activity-icon {
+            font-size: 2.5rem;
+            margin-right: 1rem;
+        }
+
+        .activity-date {
+            background: #667eea;
+            color: white;
+            padding: 0.3rem 0.8rem;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            margin-left: auto;
+        }
+
+        /* Modal Styles */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.9);
+        }
+
+        .modal-content {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            max-width: 90%;
+            max-height: 90%;
+        }
+
+        .modal-content img {
+            width: 100%;
+            height: auto;
+            border-radius: 10px;
+        }
+
+        .close {
+            position: absolute;
+            top: 15px;
+            right: 35px;
+            color: white;
+            font-size: 40px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+        .close:hover {
+            opacity: 0.7;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+
+            .hero p {
+                font-size: 1rem;
+            }
+
+            .section {
+                margin: 1rem 0;
+                padding: 2rem 0;
+            }
+
+            .gallery {
+                grid-template-columns: 1fr;
+            }
+
+            .gallery-item img,
+            .gallery-item .placeholder {
+                height: 200px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav class="container">
+            <a href="#" class="logo">🎓 SMK Yadika Soreang</a>
+            <ul class="nav-links">
+                <li><a href="#beranda">Beranda</a></li>
+                <li><a href="#tentang">Tentang</a></li>
+                <li><a href="#program">Program</a></li>
+                <li><a href="#galeri">Galeri</a></li>
+                <li><a href="#kegiatan">Kegiatan</a></li>
+                <li><a href="#kontak">Kontak</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section id="beranda" class="hero">
+            <div class="container">
+                <h1>Jurusan Akuntansi</h1>
+                <p>Membangun Generasi Profesional di Bidang Keuangan dan Akuntansi</p>
+                <a href="#tentang" class="cta-button">Pelajari Lebih Lanjut</a>
+            </div>
+        </section>
+
+        <section id="tentang" class="section">
+            <div class="container">
+                <h2>Tentang Jurusan Akuntansi</h2>
+                <div class="grid">
+                    <div class="card">
+                        <h3>🎯 Visi</h3>
+                        <p>Menjadi jurusan akuntansi terdepan yang menghasilkan lulusan berkualitas, profesional, dan siap bersaing di dunia kerja</p>
+                    </div>
+                    <div class="card">
+                        <h3>🚀 Misi</h3>
+                        <p>Memberikan pendidikan akuntansi yang berkualitas dengan menggabungkan teori dan praktik untuk mempersiapkan tenaga kerja yang kompeten</p>
+                    </div>
+                    <div class="card">
+                        <h3>⭐ Tujuan</h3>
+                        <p>Menghasilkan lulusan yang mampu menguasai sistem akuntansi modern dan memiliki jiwa entrepreneur yang kuat</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="program" class="section">
+            <div class="container">
+                <h2>Program Keahlian</h2>
+                <div class="grid">
+                    <div class="program-card">
+                        <div class="icon">📊</div>
+                        <h3>Akuntansi Dasar</h3>
+                        <p>Mempelajari prinsip-prinsip dasar akuntansi, jurnal, buku besar, dan laporan keuangan</p>
+                    </div>
+                    <div class="program-card">
+                        <div class="icon">💻</div>
+                        <h3>Komputer Akuntansi</h3>
+                        <p>Menguasai software akuntansi seperti MYOB, Accurate, dan aplikasi spreadsheet untuk akuntansi</p>
+                    </div>
+                    <div class="program-card">
+                        <div class="icon">🏦</div>
+                        <h3>Akuntansi Perbankan</h3>
+                        <p>Memahami sistem akuntansi perbankan, transaksi keuangan, dan regulasi perbankan</p>
+                    </div>
+                    <div class="program-card">
+                        <div class="icon">🏢</div>
+                        <h3>Akuntansi Perusahaan</h3>
+                        <p>Mempelajari akuntansi untuk berbagai jenis perusahaan, mulai dari dagang hingga manufaktur</p>
+                    </div>
+                    <div class="program-card">
+                        <div class="icon">📈</div>
+                        <h3>Perpajakan</h3>
+                        <p>Memahami sistem perpajakan Indonesia, perhitungan pajak, dan pelaporan pajak</p>
+                    </div>
+                    <div class="program-card">
+                        <div class="icon">💼</div>
+                        <h3>Audit & Pemeriksaan</h3>
+                        <p>Mempelajari teknik audit, pemeriksaan laporan keuangan, dan standar audit yang berlaku</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="galeri" class="section">
+            <div class="container">
+                <h2>Galeri Kegiatan</h2>
+                <div class="gallery">
+                    <div class="gallery-item" onclick="openModal('modal1')">
+                        <div class="placeholder" style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); position: relative;">
+                            <img src="lab.png" alt="Lab Komputer" style="width: 100%; height: 280px; object-fit: cover; border-radius: 15px;">
+                            <div style="position: absolute; bottom: 10px; left: 50%; transform: translateX(-50%); background: rgba(0,0,0,0.7); padding: 5px 15px; border-radius: 15px; font-size: 0.8rem;">Lab Komputer</div>
+                        </div>
+                        <div class="gallery-caption">
+                            <h4>Praktik Software Akuntansi</h4>
+                            <p>Siswa sedang mengikuti praktik menggunakan software MYOB untuk membuat laporan neraca di laboratorium komputer</p>
+                        </div>
+                    </div>
+                    <div class="gallery-item" onclick="openModal('modal2')">
+                        <div class="placeholder" style="background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%); position: relative;">
+                            <img src="ujikom.png" alt="Lab Komputer" style="width: 100%; height: 280px; object-fit: cover; border-radius: 15px;">
+                            <div style="position: absolute; bottom: 10px; left: 50%; transform: translateX(-50%); background: rgba(0,0,0,0.7); padding: 5px 15px; border-radius: 15px; font-size: 0.8rem;">UKK</div>
+                        </div>
+                        <div class="gallery-caption">
+                            <h4>Uji Kompetensi Keahlian</h4>
+                            <p>Siswa sedang melakukan uji kompetensi keahlian menggunakan komputer</p>
+                        </div>
+                    </div>
+                    <div class="gallery-item" onclick="openModal('modal6')">
+                        <div class="placeholder" style="background: linear-gradient(135deg, #ffecd2 0%, #fcb69f 100%); position: relative;">
+                            <img src="praktek.png" alt="Lab Komputer" style="width: 100%; height: 280px; object-fit: cover; border-radius: 15px;">
+                            <div style="position: absolute; bottom: 10px; left: 50%; transform: translateX(-50%); background: rgba(0,0,0,0.7); padding: 5px 15px; border-radius: 15px; font-size: 0.8rem;">Presentasi</div>
+                        </div>
+                        <div class="gallery-caption">
+                            <h4>Presentasi Laporan Keuangan</h4>
+                            <p>Siswa sedang mempresentasikan hasil analisis laporan keuangan perusahaan di depan kelas</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Filter Buttons -->
+                <div style="text-align: center; margin-top: 3rem;">
+                    <button class="filter-btn active" onclick="filterGallery('all')">Semua Kegiatan</button>
+                    <button class="filter-btn" onclick="filterGallery('praktik')">Praktik Langsung</button>
+                    <button class="filter-btn" onclick="filterGallery('teori')">Pembelajaran Teori</button>
+                    <button class="filter-btn" onclick="filterGallery('komputer')">Komputer</button>
+                </div>
+            </div>
+        </section>
+
+        <section id="kegiatan" class="section">
+            <div class="container">
+                <h2>Kegiatan Jurusan</h2>
+                <div class="gallery">
+                    <div class="activity-card">
+                        <div class="activity-header">
+                            <div class="activity-icon">🏆</div>
+                            <div>
+                                <h3>Lomba Akuntansi Tingkat Provinsi</h3>
+                                <div class="activity-date">Mar 2025</div>
+                            </div>
+                        </div>
+                        <p>Siswa jurusan akuntansi meraih juara 2 dalam kompetisi akuntansi tingkat provinsi Jawa Barat</p>
+                    </div>
+                    <div class="activity-card">
+                        <div class="activity-header">
+                            <div class="activity-icon">👨‍💼</div>
+                            <div>
+                                <h3>Seminar Perpajakan</h3>
+                                <div class="activity-date">Feb 2025</div>
+                            </div>
+                        </div>
+                        <p>Menghadirkan praktisi pajak untuk memberikan wawasan tentang sistem perpajakan Indonesia terkini</p>
+                    </div>
+                    <div class="activity-card">
+                        <div class="activity-header">
+                            <div class="activity-icon">🏭</div>
+                            <div>
+                                <h3>Kunjungan Industri</h3>
+                                <div class="activity-date">Jan 2025</div>
+                            </div>
+                        </div>
+                        <p>Kunjungan ke perusahaan dan kantor akuntan publik untuk melihat praktik akuntansi di dunia kerja</p>
+                    </div>
+                    <div class="activity-card">
+                        <div class="activity-header">
+                            <div class="activity-icon">💻</div>
+                            <div>
+                                <h3>Workshop Software Akuntansi</h3>
+                                <div class="activity-date">Des 2024</div>
+                            </div>
+                        </div>
+                        <p>Pelatihan intensif penggunaan software akuntansi modern untuk meningkatkan skill siswa</p>
+                    </div>
+                    <div class="activity-card">
+                        <div class="activity-header">
+                            <div class="activity-icon">📈</div>
+                            <div>
+                                <h3>Praktik Kerja Lapangan</h3>
+                                <div class="activity-date">Nov 2024</div>
+                            </div>
+                        </div>
+                        <p>PKL di berbagai perusahaan dan instansi untuk memberikan pengalaman kerja nyata kepada siswa</p>
+                    </div>
+                    <div class="activity-card">
+                        <div class="activity-header">
+                            <div class="activity-icon">🎯</div>
+                            <div>
+                                <h3>Ujian Kompetensi</h3>
+                                <div class="activity-date">Okt 2024</div>
+                            </div>
+                        </div>
+                        <p>Pelaksanaan ujian kompetensi keahlian untuk mengukur kemampuan siswa sebelum lulus</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="fasilitas" class="section">
+            <div class="container">
+                <h2>Fasilitas Unggulan</h2>
+                <div class="grid">
+                    <div class="card">
+                        <h3>🖥️ Lab Komputer</h3>
+                        <p>Laboratorium komputer dengan software akuntansi terkini untuk praktik langsung</p>
+                    </div>
+                    <div class="card">
+                        <h3>📚 Perpustakaan</h3>
+                        <p>Koleksi buku akuntansi, keuangan, dan referensi terbaru untuk mendukung pembelajaran</p>
+                    </div>
+                    <div class="card">
+                        <h3>🏪 Praktik Koperasi</h3>
+                        <p>Koperasi sekolah sebagai tempat praktik langsung transaksi dan pembukuan</p>
+                    </div>
+                    <div class="card">
+                        <h3>👨‍🏫 Guru Berpengalaman</h3>
+                        <p>Tenaga pengajar yang berpengalaman dan bersertifikat di bidang akuntansi</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="section">
+            <div class="container">
+                <h2>Prospek Karir</h2>
+                <div class="grid">
+                    <div class="program-card">
+                        <div class="icon">👔</div>
+                        <h3>Staff Akuntansi</h3>
+                        <p>Bekerja di berbagai perusahaan sebagai staff akuntansi dan keuangan</p>
+                    </div>
+                    <div class="program-card">
+                        <div class="icon">🏦</div>
+                        <h3>Teller Bank</h3>
+                        <p>Berkarir di sektor perbankan sebagai teller atau customer service</p>
+                    </div>
+                    <div class="program-card">
+                        <div class="icon">📊</div>
+                        <h3>Konsultan Pajak</h3>
+                        <p>Menjadi konsultan pajak atau bekerja di kantor konsultan akuntansi</p>
+                    </div>
+                    <div class="program-card">
+                        <div class="icon">💼</div>
+                        <h3>Wirausaha</h3>
+                        <p>Memulai usaha sendiri dengan kemampuan mengelola keuangan yang baik</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Modal untuk galeri -->
+    <div id="modal1" class="modal" onclick="closeModal('modal1')">
+        <span class="close">&times;</span>
+        <div class="modal-content">
+            <div style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); padding: 4rem; border-radius: 15px; text-align: center; color: white;">
+                <div style="font-size: 6rem; margin-bottom: 2rem;">💻</div>
+                <h2 style="margin-bottom: 1rem;">Praktik Software Akuntansi</h2>
+                <p style="font-size: 1.1rem; margin-bottom: 2rem; opacity: 0.9;">Siswa sedang mengikuti praktik menggunakan software MYOB untuk membuat laporan neraca di laboratorium komputer dengan fasilitas 30 unit PC modern</p>
+                <div style="display: flex; justify-content: center; gap: 1rem; flex-wrap: wrap;">
+                    <span style="background: rgba(255,255,255,0.2); padding: 8px 16px; border-radius: 20px; font-size: 0.9rem;">Software MYOB</span>
+                    <span style="background: rgba(255,255,255,0.2); padding: 8px 16px; border-radius: 20px; font-size: 0.9rem;">Laporan Neraca</span>
+                    <span style="background: rgba(255,255,255,0.2); padding: 8px 16px; border-radius: 20px; font-size: 0.9rem;">30 Unit PC</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="modal2" class="modal" onclick="closeModal('modal2')">
+        <span class="close">&times;</span>
+        <div class="modal-content">
+            <div style="background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%); padding: 4rem; border-radius: 15px; text-align: center; color: white;">
+                <div style="font-size: 6rem; margin-bottom: 2rem;">📊</div>
+                <h2 style="margin-bottom: 1rem;">Pembelajaran Akuntansi Dasar</h2>
+                <p style="font-size: 1.1rem; margin-bottom: 2rem; opacity: 0.9;">Siswa sedang mempelajari cara membuat jurnal umum dan posting ke buku besar menggunakan metode manual di ruang kelas ber-AC dengan fasilitas multimedia</p>
+                <div style="display: flex; justify-content: center; gap: 1rem; flex-wrap: wrap;">
+                    <span style="background: rgba(255,255,255,0.2); padding: 8px 16px; border-radius: 20px; font-size: 0.9rem;">Jurnal Umum</span>
+                    <span style="background: rgba(255,255,255,0.2); padding: 8px 16px; border-radius: 20px; font-size: 0.9rem;">Buku Besar</span>
+                    <span style="background: rgba(255,255,255,0.2); padding: 8px 16px; border-radius: 20px; font-size: 0.9rem;">Metode Manual</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="modal3" class="modal" onclick="closeModal('modal3')">
+        <span class="close">&times;</span>
+        <div class="modal-content">
+            <div style="background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%); padding: 4rem; border-radius: 15px; text-align: center; color: white;">
+                <div style="font-size: 6rem; margin-bottom: 2rem;">🏪</div>
+                <h2 style="margin-bottom: 1rem;">Praktik Koperasi Sekolah</h2>
+                <p style="font-size: 1.1rem; margin-bottom: 2rem; opacity: 0.9;">Siswa sedang mempraktikkan pelayanan anggota koperasi dan pencatatan transaksi penjualan di koperasi sekolah dengan sistem kasir modern</p>
+                <div style="display: flex; justify-content: center; gap: 1rem; flex-wrap: wrap;">
+                    <span style="background: rgba(255,255,255,0.2); padding: 8px 16px; border-radius: 20px; font-size: 0.9rem;">Pelayanan Anggota</span>
+                    <span style="background: rgba(255,255,255,0.2); padding: 8px 16px; border-radius: 20px; font-size: 0.9rem;">Transaksi Penjualan</span>
+                    <span style="background: rgba(255,255,255,0.2); padding: 8px 16px; border-radius: 20px; font-size: 0.9rem;">Sistem Kasir</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="modal4" class="modal" onclick="closeModal('modal4')">
+        <span class="close">&times;</span>
+        <div class="modal-content">
+            <div style="background: linear-gradient(135deg, #fa709a 0%, #fee140 100%); padding: 4rem; border-radius: 15px; text-align: center; color: white;">
+                <div style="font-size: 6rem; margin-bottom: 2rem;">🧮</div>
+                <h2 style="margin-bottom: 1rem;">Praktik Perhitungan Pajak</h2>
+                <p style="font-size: 1.1rem; margin-bottom: 2rem; opacity: 0.9;">Siswa sedang mengikuti pelatihan perhitungan PPh dan PPN menggunakan kalkulator dan form SPT dengan bimbingan guru bersertifikat</p>
+                <div style="display: flex; justify-content: center; gap: 1rem; flex-wrap: wrap;">
+                    <span style="background: rgba(255,255,255,0.2); padding: 8px 16px; border-radius: 20px; font-size: 0.9rem;">PPh & PPN</span>
+                    <span style="background: rgba(255,255,255,0.2); padding: 8px 16px; border-radius: 20px; font-size: 0.9rem;">Form SPT</span>
+                    <span style="background: rgba(255,255,255,0.2); padding: 8px 16px; border-radius: 20px; font-size: 0.9rem;">Guru Bersertifikat</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="modal5" class="modal" onclick="closeModal('modal5')">
+        <span class="close">&times;</span>
+        <div class="modal-content">
+            <div style="background: linear-gradient(135deg, #a8edea 0%, #fed6e3 100%); padding: 4rem; border-radius: 15px; text-align: center; color: #333;">
+                <div style="font-size: 6rem; margin-bottom: 2rem;">📋</div>
+                <h2 style="margin-bottom: 1rem;">Simulasi Audit Laporan</h2>
+                <p style="font-size: 1.1rem; margin-bottom: 2rem; opacity: 0.8;">Siswa sedang mempraktikkan teknik audit sederhana dengan memeriksa dokumen dan membuat kertas kerja audit sesuai standar profesional</p>
+                <div style="display: flex; justify-content: center; gap: 1rem; flex-wrap: wrap;">
+                    <span style="background: rgba(0,0,0,0.1); padding: 8px 16px; border-radius: 20px; font-size: 0.9rem;">Teknik Audit</span>
+                    <span style="background: rgba(0,0,0,0.1); padding: 8px 16px; border-radius: 20px; font-size: 0.9rem;">Kertas Kerja</span>
+                    <span style="background: rgba(0,0,0,0.1); padding: 8px 16px; border-radius: 20px; font-size: 0.9rem;">Standar Profesional</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="modal6" class="modal" onclick="closeModal('modal6')">
+        <span class="close">&times;</span>
+        <div class="modal-content">
+            <div style="background: linear-gradient(135deg, #ffecd2 0%, #fcb69f 100%); padding: 4rem; border-radius: 15px; text-align: center; color: #333;">
+                <div style="font-size: 6rem; margin-bottom: 2rem;">🎓</div>
+                <h2 style="margin-bottom: 1rem;">Presentasi Laporan Keuangan</h2>
+                <p style="font-size: 1.1rem; margin-bottom: 2rem; opacity: 0.8;">Siswa sedang mempresentasikan hasil analisis laporan keuangan perusahaan di depan kelas menggunakan proyektor dan slide presentasi</p>
+                <div style="display: flex; justify-content: center; gap: 1rem; flex-wrap: wrap;">
+                    <span style="background: rgba(0,0,0,0.1); padding: 8px 16px; border-radius: 20px; font-size: 0.9rem;">Analisis Laporan</span>
+                    <span style="background: rgba(0,0,0,0.1); padding: 8px 16px; border-radius: 20px; font-size: 0.9rem;">Presentasi</span>
+                    <span style="background: rgba(0,0,0,0.1); padding: 8px 16px; border-radius: 20px; font-size: 0.9rem;">Proyektor</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer id="kontak">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>Kontak Kami</h3>
+                    <p>📞 Telepon: (021) 123-4567</p>
+                    <p>📧 Email: akuntansi@smkyadikasoreang.sch.id</p>
+                    <p>📍 Alamat: Jl. Raya Soreang, Kabupaten Bandung</p>
+                </div>
+                <div class="footer-section">
+                    <h3>Jam Operasional</h3>
+                    <p>Senin - Jumat: 07:00 - 15:00</p>
+                    <p>Sabtu: 07:00 - 12:00</p>
+                    <p>Minggu: Tutup</p>
+                </div>
+                <div class="footer-section">
+                    <h3>Media Sosial</h3>
+                    <p>🌐 Website: smkyadikasoreang.sch.id</p>
+                    <p>📘 Facebook: SMK Yadika Soreang</p>
+                    <p>📷 Instagram: @smkyadikasoreang</p>
+                </div>
+            </div>
+            <hr style="margin: 2rem 0; border: none; height: 1px; background: #555;">
+            <p>&copy; 2025 SMK Yadika Soreang - Jurusan Akuntansi. Semua hak dilindungi.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Smooth scrolling untuk navigasi
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+
+        // Animasi scroll untuk card
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver(function(entries) {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.animation = 'fadeInUp 0.6s ease forwards';
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.card, .program-card, .gallery-item, .activity-card').forEach(card => {
+            observer.observe(card);
+        });
+
+        // Modal functions
+        function openModal(modalId) {
+            document.getElementById(modalId).style.display = 'block';
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeModal(modalId) {
+            document.getElementById(modalId).style.display = 'none';
+            document.body.style.overflow = 'auto';
+        }
+
+        // Close modal when clicking outside
+        window.onclick = function(event) {
+            if (event.target.classList.contains('modal')) {
+                event.target.style.display = 'none';
+                document.body.style.overflow = 'auto';
+            }
+        }
+
+        // Close modal with Escape key
+        document.addEventListener('keydown', function(event) {
+            if (event.key === 'Escape') {
+                const modals = document.querySelectorAll('.modal');
+                modals.forEach(modal => {
+                    if (modal.style.display === 'block') {
+                        modal.style.display = 'none';
+                        document.body.style.overflow = 'auto';
+                    }
+                });
+            }
+        });
+    </script>
+</body>
+</html>
